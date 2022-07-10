@@ -1,0 +1,64 @@
+.base {
+    display: flex;
+}
+p{
+    text-align: center;
+    font-size: 120px;
+    margin-top: 20px;
+    padding-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h3 {
+    font-size: 24px;
+    padding-left: 15px;
+}
+img{
+    border-radius: 360px; /* Радиус скругления */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+    background-color: #1E90FF;
+    max-width: 35px;
+    max-height: 35px;
+    margin-left: 240px;
+    margin-top: -40px;
+}
+.base__two h3 {
+    font-size: 24px;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+.base__one {
+    outline: 2px solid none; 
+    margin: 25px;
+    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+}
+.base__one-fone {
+    width: 292px;
+    height: 282px;
+    background-color: rgb(38, 159, 93);
+    color: white;
+    padding-top: 20px;
+}
+.base__two{
+    outline: 2px solid none;
+    margin: 25px 0px 25px 0px;
+    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+}
+.base__two-fone {
+    width: 292px;
+    height: 282px;
+    background-color: rgb(101, 194, 220);
+    color: black;
+    padding-top: 20px;
+}
+.base__three{
+    outline: 2px solid none; 
+    margin: 25px 0px 25px 25px;
+    box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+}
+.base__three-fone {
+    width: 292px;
+    height: 282px;
+    background-color: rgb(238, 188, 64);
+    color: white;
+    padding-top: 20px;
+}
