@@ -1,0 +1,20 @@
+table {
+    border: 1px solid grey;
+}
+
+th {
+    border: 1px solid grey;
+}
+
+
+td {
+    border: 1px solid grey;
+}
+
+.one {
+    text-align: center;
+}
+
+caption {
+    text-align: center;
+}

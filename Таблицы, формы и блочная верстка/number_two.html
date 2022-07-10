@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача № 4 Запись на курсы программирования </title>
+</head>
+
+<body>
+    <form action="#" method="post">
+        <h2>Запись на курсы программирования</h2>
+        <p>Имя: <br> <input type="text"></p>
+
+        <div>
+            <input type="radio" name="language" value="java" checked>
+            <label>Java</label>
+            <input type="radio" name="language" value="c">
+            <label>C++</label>
+            <input type="radio" name="language" value="python">
+            <label>Python</label>
+            <input type="radio" name="language" value="php">
+            <label>PHP</label>
+            <input type="radio" name="language" value="js">
+            <label>JavaScript</label>
+        </div>
+
+
+        <br>
+
+        <label> Дополнительная информация:</label><br>
+        <textarea name="information" cols="25" rows="4">Есть опыт программирования на Java</textarea>
+
+        <p>Секретное слово: <br> <input type="password" minlength="10" maxlength="20"></p>
+
+        <p><input type="checkbox" unchecked>С правилами ознакомлен и согласен</p>
+        <input type="submit" value="Отправить">
+        <input type="reset" value="Очистить">
+
+    </form>
+</body>
+
+</html>
