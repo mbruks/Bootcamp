@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="style.css">
     <title>Рубашка Medicine</title>
     <base target="_blank">
+    <link href="Toast/jquery.toast.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="Jquery/jquery-3.6.0.min.js"></script>
+    <script src="Toast/jquery.toast.min.js"></script>
 </head>
 
 <body>
@@ -55,10 +58,20 @@
                     </div>
                 </div>
 
+                <div class="product__counter">
+                    <span class="product__counter-text">Количество товара:</span>
+                    <div class="number" data-step="1" data-min="1" data-max="100">
+                        <input class="number-text" type="text" name="count" value="1">
+                        <a href="#" class="number-minus" target="none">-</a>
+                        <a href="#" class="number-plus" target="none">+</a>
+                    </div>
+                </div>
+                
                 <div class="product__actions">
-                    <button class="button__actions button-blue">В магазин</button>
+                    <button class="button__actions button-blue">Купить</button>
                     <button class="button__actions">В избранное</button>
                 </div>
+                
                 <div class="product__text">
                     <p>Рубашка Medicine выполнена из вискозной ткани с клетчатым узором. <br>
                         Детали: прямой крой; отложной
