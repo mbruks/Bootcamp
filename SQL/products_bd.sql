@@ -5,11 +5,11 @@
 /*!40101 SET NAMES utf8mb4 */;
 
 -- Создание базы данных
-create database products_done;
-use products_done;
+create database products;
+use products;
 
 --
--- База данных: `products_done`
+-- База данных: `products`
 --
 
 -- --------------------------------------------------------
