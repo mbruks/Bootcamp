@@ -1,4 +1,9 @@
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -20,18 +25,19 @@ use products;
 
 CREATE TABLE `category` (
   `id_category` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL
+  `title` varchar(75) NOT NULL,
+  `discription` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `category`
 --
 
-INSERT INTO `category` (`id_category`, `id_product`) VALUES
-(1, 1),
-(2, 5),
-(3, 2),
-(4, 4);
+INSERT INTO `category` (`id_category`, `title`, `discription`) VALUES
+(1, 'Одежда', 'Женская и Мужская одежда'),
+(2, 'Обувь', 'Мужская И Женская обувь'),
+(3, 'Аксессуары', 'Головные уборы и украшения'),
+(4, 'Распродажа', 'Товары со скидкой');
 
 -- --------------------------------------------------------
 
@@ -41,19 +47,18 @@ INSERT INTO `category` (`id_category`, `id_product`) VALUES
 
 CREATE TABLE `category_product` (
   `id_category` int(11) NOT NULL,
-  `title` varchar(75) NOT NULL,
-  `discription` varchar(300) NOT NULL
+  `id_product` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `category_product`
 --
 
-INSERT INTO `category_product` (`id_category`, `title`, `discription`) VALUES
-(1, 'Одежда', 'Женская и Мужская одежда'),
-(2, 'Обувь', 'Мужская И Женская обувь'),
-(3, 'Аксессуары', 'Головные уборы и украшения'),
-(4, 'Распродажа', 'Товары со скидкой');
+INSERT INTO `category_product` (`id_category`, `id_product`) VALUES
+(1, 1),
+(2, 5),
+(3, 2),
+(4, 4);
 
 -- --------------------------------------------------------
 
@@ -63,38 +68,15 @@ INSERT INTO `category_product` (`id_category`, `title`, `discription`) VALUES
 
 CREATE TABLE `image` (
   `id_image` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL
+  `url` text NOT NULL,
+  `alt` varchar(300) CHARACTER SET ucs2 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `image`
 --
 
-INSERT INTO `image` (`id_image`, `id_product`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `image_product`
---
-
-CREATE TABLE `image_product` (
-  `id_image` int(11) NOT NULL,
-  `url` text NOT NULL,
-  `alt` varchar(300) CHARACTER SET ucs2 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `image_product`
---
-
-INSERT INTO `image_product` (`id_image`, `url`, `alt`) VALUES
+INSERT INTO `image` (`id_image`, `url`, `alt`) VALUES
 (1, 'https://images.wbstatic.net/big/new/53300000/53300164-1.jpg', 'Куртка GUESS'),
 (2, 'https://static.rendez-vous.ru/files/catalog_models/2939810_shapka_guess_aw8728wol01_belyy_viskoza.JPG', 'Шапка GUESS'),
 (3, 'https://chia.ua/product/263978/x_263978_1.jpg', 'Женское платье Gucci'),
@@ -105,6 +87,29 @@ INSERT INTO `image_product` (`id_image`, `url`, `alt`) VALUES
 (8, 'https://outmaxshop.ru/components/com_jshopping/files/img_products/23341/nike-air-force-1-low-23341-1.jpg', 'Кроссовки NIKE AIR FORCE 1 LOW'),
 (9, 'https://e-mily.ru/wa-data/public/shop/products/00/96/9600/images/9821/9821.970.jpg', 'Шляпа пляжная Del Mare'),
 (10, 'https://pandorarussia.ru/media/catalog/product/p/n/pngtrpnt_299056c01_rgb_1.png', 'Серьги-кольца \"Логомания\"');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `image_product`
+--
+
+CREATE TABLE `image_product` (
+  `id_image` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `image_product`
+--
+
+INSERT INTO `image_product` (`id_image`, `id_product`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6);
 
 -- --------------------------------------------------------
 
@@ -151,28 +156,28 @@ INSERT INTO `product` (`id_product`, `title`, `price`, `price_without_discount`,
 -- Индексы таблицы `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id_category`,`id_product`),
-  ADD KEY `id_product` (`id_product`);
+  ADD PRIMARY KEY (`id_category`);
 
 --
 -- Индексы таблицы `category_product`
 --
 ALTER TABLE `category_product`
-  ADD PRIMARY KEY (`id_category`);
+  ADD PRIMARY KEY (`id_category`,`id_product`),
+  ADD KEY `id_product` (`id_product`);
 
 --
 -- Индексы таблицы `image`
 --
 ALTER TABLE `image`
-  ADD PRIMARY KEY (`id_product`,`id_image`),
-  ADD KEY `id_product` (`id_product`),
-  ADD KEY `id_image` (`id_image`);
+  ADD PRIMARY KEY (`id_image`);
 
 --
 -- Индексы таблицы `image_product`
 --
 ALTER TABLE `image_product`
-  ADD PRIMARY KEY (`id_image`);
+  ADD PRIMARY KEY (`id_product`,`id_image`),
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `id_image` (`id_image`);
 
 --
 -- Индексы таблицы `product`
@@ -187,15 +192,15 @@ ALTER TABLE `product`
 --
 
 --
--- AUTO_INCREMENT для таблицы `category_product`
+-- AUTO_INCREMENT для таблицы `category`
 --
-ALTER TABLE `category_product`
+ALTER TABLE `category`
   MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT для таблицы `image_product`
+-- AUTO_INCREMENT для таблицы `image`
 --
-ALTER TABLE `image_product`
+ALTER TABLE `image`
   MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
@@ -209,25 +214,25 @@ ALTER TABLE `product`
 --
 
 --
--- Ограничения внешнего ключа таблицы `category`
+-- Ограничения внешнего ключа таблицы `category_product`
 --
-ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
-  ADD CONSTRAINT `category_ibfk_2` FOREIGN KEY (`id_category`) REFERENCES `category_product` (`id_category`);
+ALTER TABLE `category_product`
+  ADD CONSTRAINT `category_product_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
+  ADD CONSTRAINT `category_product_ibfk_2` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`);
 
 --
--- Ограничения внешнего ключа таблицы `image`
+-- Ограничения внешнего ключа таблицы `image_product`
 --
-ALTER TABLE `image`
-  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
-  ADD CONSTRAINT `image_ibfk_2` FOREIGN KEY (`id_image`) REFERENCES `image_product` (`id_image`);
+ALTER TABLE `image_product`
+  ADD CONSTRAINT `image_product_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`),
+  ADD CONSTRAINT `image_product_ibfk_2` FOREIGN KEY (`id_image`) REFERENCES `image` (`id_image`);
 
 --
 -- Ограничения внешнего ключа таблицы `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`category`) REFERENCES `category_product` (`id_category`),
-  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`image`) REFERENCES `image_product` (`id_image`);
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`category`) REFERENCES `category` (`id_category`),
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`image`) REFERENCES `image` (`id_image`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
