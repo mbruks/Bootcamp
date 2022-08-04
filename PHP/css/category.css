@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Arsenal', sans-serif;
+    color:black;
+}
+
+a{
+    text-decoration: none
+}
+.categories{
+    margin-top: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card{ 
+    min-width: 200px;
+    height: 300px;   
+    margin: 30px auto;
+}
+
+.content__title{
+    height: 87%;
+    background-color: #269f5d;
+    position: relative;
+}
+
+.content__title div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.content__count{
+    text-align: center;
+    vertical-align: center;
+    color:black;
+    background-color: #ffffff;
+    box-shadow: 0.2em 0.2em 3px rgba(122,122,122,0.5);
+}

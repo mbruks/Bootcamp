@@ -1,0 +1,15 @@
+.header__return{
+    display: block;
+}
+
+form{
+    margin: 20px;
+}
+
+.text-danger{
+    color:red;
+}
+
+.alert__success{
+    color:green;
+}
